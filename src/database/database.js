@@ -1,7 +1,7 @@
-import { Sequelize } from 'sequelize';
+import { Sequelize } from "sequelize";
 
-export const sequelize = new Sequelize("gamerCornerDb", "postgres", "Cholao", {
-    host: "localhost",
-    port: 5432,
-    dialect: "postgres"
+export const sequelize = new Sequelize("GamersCorner", "postgres", "Hola2321", {
+  host: "localhost",
+  port: 5432,
+  dialect: "postgres",
 });
