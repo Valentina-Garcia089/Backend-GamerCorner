@@ -74,6 +74,11 @@ export const getReviewsByUser = async (req, res) => {
           as: "user",
           attributes: ["id", "username", "nickName", "profilePictureUrl"],
         },
+        {
+          model: Game,
+          as: "game",
+          attributes: ["id", "title", "image", "developer"],
+        },
       ],
     });
     res.json(reviews);
@@ -117,7 +122,7 @@ export const deleteReview = async (req, res) => {
 
     await review.destroy();
 
-    res.sendStatus(204);
+    res.json({ message: "Review eliminada" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

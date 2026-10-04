@@ -12,7 +12,7 @@ export const Review = sequelize.define('reviews', {
         allowNull: false
     },
     rating: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
         allowNull: false
     },
     tags: {
