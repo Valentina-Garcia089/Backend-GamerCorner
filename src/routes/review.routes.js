@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   createReview,
+  getAllReviews,
   getReviewsByGame,
   getReviewsByUser,
   updateReview,
@@ -10,6 +11,7 @@ import {
 const router = Router();
 
 router.post("/reviews", createReview);
+router.get("/reviews", getAllReviews);
 router.get("/reviews/game/:gameId", getReviewsByGame);
 router.get("/reviews/user/:userId", getReviewsByUser);
 router.put("/reviews/:id", updateReview);

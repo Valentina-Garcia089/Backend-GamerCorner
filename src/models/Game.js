@@ -20,8 +20,8 @@ export const Game = sequelize.define("games", {
         allowNull: false
     },
     image: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
+        type: DataTypes.STRING,
+        allowNull: true
     },
     description: {
         type: DataTypes.TEXT

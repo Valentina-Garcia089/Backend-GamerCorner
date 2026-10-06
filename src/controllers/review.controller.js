@@ -2,6 +2,29 @@ import { Review } from "../models/Review.js";
 import { User } from "../models/User.js";
 import { Game } from "../models/Game.js";
 
+export const getAllReviews = async (req, res) => {
+  try {
+    const reviews = await Review.findAll({
+      order: [["createdAt", "DESC"]],
+      include: [
+        {
+          model: User,
+          as: "user",
+          attributes: ["id", "username", "nickName", "profilePictureUrl"],
+        },
+        {
+          model: Game,
+          as: "game",
+          attributes: ["id", "title", "developer", "year", "image", "description"],
+        },
+      ],
+    });
+    res.json(reviews);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export const createReview = async (req, res) => {
   try {
     const { description, rating, tags, userId, gameId } = req.body;
